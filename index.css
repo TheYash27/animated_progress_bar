@@ -1,0 +1,55 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --progressbar-bg: lightgrey;
+    --start: red;
+    --middle: blue;
+    --finish: green;
+} 
+
+/* Outer progress bar container */
+.progress-bar {
+  width: 200px; /* Adjust width as needed */
+  height: 20px; /* Adjust height as needed */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  position: absolute; /* Added for absolute positioning */
+  top: 50%; /* Position at 50% from top */
+  left: 50%; /* Position at 50% from left */
+  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  background-color: lightgrey;
+}
+
+/* Inner progress bar */
+.progress-bar-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%; /* Initially 0% width */
+  background-color: red;
+  animation: fill-progress 5s linear infinite;
+}
+
+/* Keyframes for the animation */
+@keyframes fill-progress {
+  0% {
+    width: 0%;
+    background-color: red;
+  }
+  50% {
+    width: 50%;
+    background-color: blue;
+  }
+  100% {
+    width: 100%;
+    background-color: green;
+  }
+  99% {
+    width: 100%; /* Hold at 100% for a slight pause */
+  }
+}
